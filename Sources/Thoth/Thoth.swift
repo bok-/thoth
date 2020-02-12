@@ -2,9 +2,10 @@
 //  Thoth.swift
 //
 
+import Foundation
+
 #if os(iOS) || os(macOS)
 
-import Foundation
 import SwiftUI
 @_exported import Config
 
@@ -131,21 +132,30 @@ public class Thoth: ObservableObject {
         let cache = Cache()
         try cache.set(filename: Constants.cacheFilename, data: data)
     }
-    
-    
-    // MARK: - Encoding and Decoding
-    
+}
+
+
+// MARK: - Support For Linux
+
+#else
+
+public class Thoth {}
+
+#endif
+
+
+// MARK: - Encoding and Decoding
+
+extension Thoth {
     public static var decoder: JSONDecoder {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .iso8601
         return decoder
     }
-    
+
     public static var encoder: JSONEncoder {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         return encoder
     }
 }
-
-#endif

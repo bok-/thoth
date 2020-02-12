@@ -1,7 +1,7 @@
 import XCTest
 
-import ConfigTests
+@testable import ConfigTests
 
 var tests = [XCTestCaseEntry]()
-tests += MenuTests.allTests()
+tests += [ testCase(MenuTests.allTests) ]
 XCTMain(tests)

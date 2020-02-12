@@ -5,7 +5,7 @@
 import XCTest
 @testable import Config
 
-final class MenuTests: XCTestCase {
+public final class MenuTests: XCTestCase {
     
     static var allTests = [
         ("Menu cannot be empty", testMenuCannotBeEmpty),

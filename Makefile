@@ -34,6 +34,15 @@ clean:
 
 test:
 	swift test
+
+linux-test:
+	docker run \
+		--rm \
+		--volume "$(shell pwd)/:/src" \
+		--workdir "/src" \
+		swift:5.1.4 \
+		swift test
+	
 	
 deploy:
 	aws --profile ${PROFILE} --region ${REGION} s3 sync ./.export/ s3://${BUCKET}/ --cache-control no-cache
