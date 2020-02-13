@@ -83,6 +83,7 @@ public class Thoth: ObservableObject {
         let session = URLSession(configuration: config)
         var request = URLRequest(url: self.url)
         request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        
         let task = session.dataTask(with: request) { [weak self] data, response, error in
             guard let self = self else { return }
             

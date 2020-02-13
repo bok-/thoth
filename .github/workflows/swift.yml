@@ -14,10 +14,10 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Run tests
-      run: swift test -v
+      run: make test
 
     - name: Build Output
-      run: swift run -v
+      run: make
 
     - uses: jakejarvis/s3-sync-action@master
       with:
